@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Captive Firefox
+Comment=Launch Firefox with Wi-Fi DNS for captive portal login
+Exec=captive-firefox.sh
+Icon=firefox
+Terminal=true
+Categories=Network;Internet;
