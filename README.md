@@ -8,6 +8,7 @@ A Bash script to launch Firefox with the DNS server provided by your Wi-Fi netwo
 - Auto-detects Wi-Fi DNS
 - Uses a private, temporary Firefox profile
 - Sandboxed with [firejail](https://firejail.wordpress.com/)
+- Disables JIT and WebAssembly by default for a reduced attack surface on untrusted networks
 
 ## Usage
 
@@ -18,6 +19,7 @@ A Bash script to launch Firefox with the DNS server provided by your Wi-Fi netwo
 Options:
 - `-u, --url URL` URL to open (default: Firefox captive portal check)
 - `-i, --iface IFACE` Wi-Fi interface (default: auto)
+- `--no-disable-jit` Do not disable JIT and WebAssembly (they are disabled by default for security)
 - `-h, --help` Show help
 
 Example:
@@ -38,6 +40,7 @@ Example:
 ## Security
 
 - No data is saved; all traffic uses the Wi-Fi DNS; session is sandboxed
+- JIT compilation and WebAssembly are disabled by default to reduce the attack surface on untrusted networks; use `--no-disable-jit` to opt out
 
 ## License
 
