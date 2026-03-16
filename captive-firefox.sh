@@ -106,6 +106,10 @@ user_pref("javascript.options.baselinejit", false);
 user_pref("javascript.options.ion", false);
 user_pref("javascript.options.wasm", false);
 user_pref("javascript.options.asmjs", false);
+
+// Disable the privacy notice page on first run
+user_pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);
+
 EOF
 fi
 
