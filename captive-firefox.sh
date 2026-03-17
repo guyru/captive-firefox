@@ -40,6 +40,21 @@ usage() {
   sed -n '/^#/!q; /^#!/d; s/^# \{0,1\}//; p' "$0"
 }
 
+# --- Dependency checks ---
+check_deps() {
+  local missing=()
+  for cmd in "$FIREJAIL_BIN" "$FIREFOX_BIN" nmcli "$IW_BIN"; do
+    if ! command -v "$cmd" &>/dev/null && ! [ -x "$cmd" ]; then
+      missing+=("$cmd")
+    fi
+  done
+  if [[ ${#missing[@]} -gt 0 ]]; then
+    echo "Error: missing required dependencies: ${missing[*]}" >&2
+    echo "Please install them and try again." >&2
+    exit 1
+  fi
+}
+
 # --- Parse arguments ---
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -74,6 +89,9 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+# --- Check dependencies ---
+check_deps
 
 # --- Wi-Fi Interface autodetect if not set ---
 if [[ -z "$IFACE" ]]; then

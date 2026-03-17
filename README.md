@@ -1,6 +1,6 @@
 # captive-firefox
 
-A Bash script to launch Firefox with the DNS server provided by your Wi-Fi network, making it easy to access and pass through captive portals. Inspired by [@FiloSottile/captive-browser](https://github.com/FiloSottile/captive-browser), but designed for Firefox and Linux with no extra dependencies.
+A Bash script to launch Firefox with the DNS server provided by your Wi-Fi network, making it easy to access and pass through captive portals. Inspired by [@FiloSottile/captive-browser](https://github.com/FiloSottile/captive-browser), but designed for Firefox and Linux with a few extra dependencies.
 
 ## Features
 
@@ -35,7 +35,7 @@ Example:
 
 ## Requirements
 
-- Bash, firejail, nmcli, iw, Firefox
+- bash, firefox, firejail, nmcli, iw
 
 ## Security
 
